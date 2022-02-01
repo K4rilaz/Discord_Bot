@@ -5,19 +5,30 @@ import asyncio
 import os
 from discord.ext import commands, tasks
 from itertools import cycle
+from discord import Member, Embed
 
 
-TOKEN = ""
+TOKEN = "OTM1NTA1NjQzNTA1MzIwMDE2.Ye_nhg.Ox69uu5WB2l5YXKn8cSvawX4yj0"
 
 client = commands.Bot(command_prefix = '.')
 status = cycle(['Status 1', 'Status 2'])
 # await self.client.process_commands(message)
+#Add embeds and titles for Bot commands?
+#Scheduled clear message tasks?
 
 @client.event
 async def on_ready():
     change_status.start()
     # await client.change_presence(status = discord.Status.online, activity = discord.Game('Assembling myself beep boop'))
+    channel = client.get_channel(935513160960581675)
+    await channel.send('Hello')
     print('R6 Event Bot is online')
+
+
+
+@client.event
+async def on_disconnect():
+    print('R6 Event Bot is offline')
 
 @tasks.loop(seconds = 10)
 async def change_status():
@@ -50,7 +61,7 @@ for filename in os.listdir('./cogs'): #Look into the directory where cogs in and
 #Errors
 @client.event
 async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandNotFound):
+    if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Invalid command used.')
 
 #CLEAR SETUP

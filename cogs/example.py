@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+from discord.ext.commands import BucketType, cooldown
 
 class Example(commands.Cog):
 
@@ -12,7 +13,14 @@ class Example(commands.Cog):
         print('Hello there Im your 8Ball cog')
 
     # 8BALL SETUP
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx, error):
+        if isinstance (error, commands.CommandOnCooldown):
+            msg = '**Still on cooldown**, please try again in {:.2f}s'.format(error.retry_after)
+            await ctx.send(msg)
+
     @commands.command(aliases=['8Ball'])
+    @commands.cooldown(1, 10, BucketType.channel)
     async def _8Ball(self, ctx, *, question): #ctx represents the command(.8Ball) and the * allows you to take multiple arguments as one argument so the question can be a whole sentence.
         responses = ['Yes', 'No', 'kinda']
         await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
