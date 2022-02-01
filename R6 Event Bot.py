@@ -8,7 +8,7 @@ from itertools import cycle
 from discord import Member, Embed
 
 
-TOKEN = "OTM1NTA1NjQzNTA1MzIwMDE2.Ye_nhg.Ox69uu5WB2l5YXKn8cSvawX4yj0"
+TOKEN = ""
 
 client = commands.Bot(command_prefix = '.')
 status = cycle(['Status 1', 'Status 2'])
