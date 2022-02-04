@@ -1,34 +1,35 @@
-import discord
+from discord import Embed
+from discord.utils import get
+from discord.ext.commands import Cog
+from discord.ext.commands import command
+from discord.ext.menus import MenuPages, ListPageSource
+from typing import Optional
 from discord.ext import commands
-import random
-from discord.ext.commands import BucketType, cooldown
 
 
 class Test(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
 
-    def __init__(self, client):
-        self.client = client
+    @commands.command()
+    async def nogroup(self, ctx):
+        await ctx.send('This command is not in a group.')
+
+    @commands.group(invoke_without_command = True)
+    async def group(self, ctx):
+        await ctx.send('This is a group')
+
+    @group.command()
+    async def test(self, ctx):
+        await ctx.send('This is a subcommandwithin the group.')
+
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print('Hello there Im your Cheers cog')
-
-    # CHEERS SETUP
-    @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
-        if isinstance(error, commands.CommandOnCooldown):
-            msg = '**Still on cooldown**, please try again in {:.2f}s'.format(error.retry_after)
-            await ctx.send(msg)
-
-    cheers = ['Test1', 'Test2', 'Test3']
-    @commands.command(aliases = cheers)
-    @commands.cooldown(5, 10, BucketType.channel)
-    async def on_message(self, message):
-            responses = ['Test is working!', 'Kinda works', 'Nope']
+        print('Hello there Im your Help command cog')
 
 
-            await message.channel.send(f'{random.choice(responses)}  {message.author.mention}')
 
+def setup(bot):
+    bot.add_cog(Test(bot))
 
-def setup(client):
-    client.add_cog(Test(client))
