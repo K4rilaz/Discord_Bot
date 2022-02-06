@@ -4,7 +4,7 @@ import random
 from discord.ext.commands import BucketType, cooldown
 
 
-class Test(commands.Cog):
+class Cheers(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -31,4 +31,4 @@ class Test(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Test(client))
+    client.add_cog(Cheers(client))

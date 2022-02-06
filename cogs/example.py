@@ -22,6 +22,11 @@ class Example(commands.Cog):
     @commands.command(aliases=['8Ball'])
     @commands.cooldown(1, 10, BucketType.channel)
     async def _8Ball(self, ctx, *, question): #ctx represents the command(.8Ball) and the * allows you to take multiple arguments as one argument so the question can be a whole sentence.
+        """
+        8Ball game which tells the outcome of the current match
+        Commands: .Go Team Empire!
+                  .Go G2!
+        """
         responses = ['Yes', 'No', 'kinda']
         await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
