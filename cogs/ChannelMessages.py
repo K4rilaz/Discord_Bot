@@ -4,7 +4,7 @@ import random
 import aiocron
 
 
-class RMessages(commands.Cog):
+class ChannelMessages(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -16,3 +16,7 @@ class RMessages(commands.Cog):
 
     #RANDOM MESSAGES SETUP
     channel_id = 939936086782795907
+
+
+def setup(client):
+    client.add_cog(ChannelMessages(client))

@@ -12,7 +12,7 @@ from discord import Member, Embed
 
 
 
-TOKEN = ""
+TOKEN = "OTM1NTA1NjQzNTA1MzIwMDE2.Ye_nhg.leG9AejOLGezJii5YMJ5Lcuq1L0"
 client = commands.Bot(command_prefix = '.', case_insensitive = True, owner_id = 664233463477698571)
 status = cycle(['Status 1', 'Status 2'])
 logging.basicConfig(level = logging.INFO)
@@ -80,6 +80,7 @@ async def on_command_error(ctx, error):
 @commands.has_permissions(manage_messages = True)  #This restricts to specific users to be able to use BOT commands
 async def clear(ctx, amount = 100):
     await ctx.channel.purge(limit = amount)
+    await ctx.send("Cleaning up the mess")
 
 
 #Logout command setup
