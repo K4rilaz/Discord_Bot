@@ -22,7 +22,6 @@ owner_id = 664233463477698571
 # LINE 28 under Change_status.start: await client.change_presence(status = discord.Status.online, activity = discord.Game('Assembling myself beep boop'))
 # await self.client.process_commands(message)
 
-#Scheduled clear message tasks?
 #Creator info message
 #Random scheduled room messages
 
@@ -49,11 +48,13 @@ async def load(ctx, extension):
     client.load_extension(f'cogs.{extension}')  #This command will go into the cogs folder and look for the example file.
     await ctx.send(f'Extension loaded')
 
+
 @client.command()
 @commands.is_owner()
 async def unload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
-    await ctx.send('Extension unloaded')
+        client.unload_extension(f'cogs.{extension}')
+        await ctx.send('Extension unloaded')
+
 
 @client.command()
 @commands.is_owner()
