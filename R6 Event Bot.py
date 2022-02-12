@@ -21,6 +21,7 @@ owner_id = 664233463477698571
 #Maybe dump codes!
 # LINE 28 under Change_status.start: await client.change_presence(status = discord.Status.online, activity = discord.Game('Assembling myself beep boop'))
 # await self.client.process_commands(message)
+#maybe maybe
 
 #Creator info message
 #Random scheduled room messages

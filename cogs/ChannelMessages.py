@@ -22,7 +22,7 @@ class ChannelMessages(commands.Cog):
         channel_id = 939936086782795907
         channel = tasks.get_channel(channel_id)
         responses = ['response 1', 'response 2', 'response 3']
-        await message.channel.send(f'{random.choice(responses)}')
+        await message.channel.send(f'{random.choice(responses)}') #FIXXXXXX
 
     @channel_messages.before_loop
     async def before_printer(self):
