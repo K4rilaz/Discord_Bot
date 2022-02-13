@@ -17,6 +17,7 @@ client = commands.Bot(command_prefix = '.', case_insensitive = True, owner_id = 
 status = cycle(['Status 1', 'Status 2'])
 logging.basicConfig(level = logging.INFO)
 owner_id = 664233463477698571
+exten = ["cogs,example", "cogs.Cheers", "cogs.ChannelMessages"]
 
 #Maybe dump codes!
 # LINE 28 under Change_status.start: await client.change_presence(status = discord.Status.online, activity = discord.Game('Assembling myself beep boop'))
@@ -24,7 +25,8 @@ owner_id = 664233463477698571
 #maybe maybe
 
 #Creator info message
-#Random scheduled room messages
+#Add cog unload codes to CM cog
+#Fix that ChannelMessages Cog needs to be reloaded before starts to work
 
 @client.event
 async def on_ready():
