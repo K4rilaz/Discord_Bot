@@ -25,8 +25,6 @@ exten = ["cogs,example", "cogs.Cheers", "cogs.ChannelMessages"]
 #maybe maybe
 
 #Creator info message
-#Add cog unload codes to CM cog
-#Fix that ChannelMessages Cog needs to be reloaded before starts to work
 
 @client.event
 async def on_ready():
