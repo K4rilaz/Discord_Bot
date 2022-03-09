@@ -17,7 +17,7 @@ client = commands.Bot(command_prefix = '.', case_insensitive = True, owner_id = 
 status = cycle(['Status 1', 'Status 2'])
 logging.basicConfig(level = logging.INFO)
 owner_id = 664233463477698571
-exten = ["cogs,example", "cogs.Cheers", "cogs.ChannelMessages"]
+exten = ["cogs,example", "cogs.Cheers", "cogs.ChannelMessages", "cogs.VotingSystem"]
 
 #Maybe dump codes!
 # LINE 28 under Change_status.start: await client.change_presence(status = discord.Status.online, activity = discord.Game('Assembling myself beep boop'))
